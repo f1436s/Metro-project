@@ -84,6 +84,7 @@ int Lmenu(int X) {// secon menu (loing or register) user choice betwen be loing 
 		// break;
     }
     else {
+	    system("cls");
         cout << "Invalid choice!\n";
         return Lmenu(X);
     }
@@ -104,11 +105,15 @@ void Cmenu(int count) {// custumer menu for custumer functions
     cout << "\n========================================\n\n";
     cout << " Enter your choice: ";
     cin >> choice;
-    if (choice == "1") {// if user choice  going back to login menu , going login menu
+    if (choice == "1")
+    {// if user choice  going back to login menu , going login menu
+	 system("cls");
         cout << "End The Program. Exiting...\n";
+	
         Lmenu(numberOfCustomersWithinTheFile);
     } // add new function for user menu......................................................................
-    else {
+    else { 
+	    system("cls");
         cout << "Invalid choice!\n\n";
         Cmenu(customerIndex);
     }
@@ -127,15 +132,17 @@ void Amenu() {// admin menu for admin functions
     cout << "\n========================================\n\n";
     cout << " Enter your choice: ";
     cin >> choice;
-    if (choice == "0") {// if user choice  going back to login menu , going login menu
+    if (choice == "0") {// if user choice  going back to login menu , going login menu 
+	    system("cls") ;
         cout << "End The Program. Exiting...\n";
         Lmenu(0);
     }
     else if (choice == "1") {// for change password ( code ) ,going ccode fun  (change code function)
         ccode();
     } // add new function for user menu......................................................................
-    else {
-        cout << "Invalid choice!\n\n";
+    else { 
+	    system("cls");
+        cout << "Invalid choice!\n\n";   
         Amenu();
     }
 }
@@ -157,6 +164,7 @@ bool login() {// login function (check if user registered)
         }else {
                 customerIndex = i;
                 if (users[i].name == username && users[i].password == password) {// if user login successfuly
+			system("cls");
                 cout << "Login successful!" << endl;
                 if (CoA == 1) // going Customer menu if user choice it
                     Cmenu(customerIndex);
@@ -169,18 +177,25 @@ bool login() {// login function (check if user registered)
                	cout <<"if you whant continue press \"y\"";
                	cin >> answer;
 		        if(answer == 'y' || answer == 'Y')
-		            login();
+			{
+				system("cls");
+		            login(); }
 		        else
-		            Lmenu(0);
+			{
+				system("cls");
+		            Lmenu(0); }
             }
             else {
                 cout << "Invalid username or password!" << endl;
                 cout <<"if you whant continue press \"y\"";
                 cin >> answer;
 		        if(answer == 'y' || answer == 'Y')
-		            login();
+			{system("cls");
+		            login();}
 		        else
-		            Lmenu(0);
+		{ 
+		    system("cls");
+	           Lmenu(0);}
             }
         }
     }
@@ -865,7 +880,7 @@ int main(){
 	copyAdmenDataFromTheFile ();
 //	theJourney();
 	do{// frist menu (Custumer or Admin menu) user choice betwen be custumer or admin
-		int choice;
+		string choice;
 		cout << "\n########################################\n";
 		cout << "          Customer or Admin Menu       \n";
 		cout << "             * welcome *    \n";
@@ -877,19 +892,22 @@ int main(){
 		cout << " Enter your choice: ";
 		cin >> choice;
 
-		if (choice == 1) {// for going Customer menu after login menu
+		if (choice == "1") {// for going Customer menu after login menu
 			CoA = 1; //make CoA = 1 ,this varibel going to Lmenu and going to if staetment for going Cmenu if it =1 or Amenu if it = 2
+			system("cls");
 			Lmenu(numberOfCustomersWithinTheFile);
 		}
-		else if (choice == 2) {// for going Admin menu after login menu
+		else if (choice == "2") {// for going Admin menu after login menu
 			code();// frist check if user know the password
 		}
-		else if (choice == 0) { // if user want exit the program
+		else if (choice == "0") { // if user want exit the program
 			cout << "End The Program. Exiting...\n";
 			exit(0);
 		}
 		else {
+			system("cls");
 			cout << "Invalid choice!\n\n";
+			
 			// return CAmenu();
 			x = 1;
 		}
